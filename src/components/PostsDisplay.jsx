@@ -1,7 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import PostItem from './PostItem';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Women_img from  '../styles/Images/woman-character-listening.avif'
@@ -11,7 +9,6 @@ import NavBar from '../pages/NavBar';
 import '../styles/styles.css'
 
 const PostsDisplay = ({ onEdit }) => {
-  const posts = useSelector((state) => state.posts.posts);
   const navigate = useNavigate();
 
   const handleCreatePost = () => {
@@ -23,20 +20,6 @@ const PostsDisplay = ({ onEdit }) => {
   return (
     <>
     <NavBar/>
-    {/* <div className="posts-display">
-    <h1>
-  <span class="word">Welcome<span class="superscript">s</span> </span>
-  <span class="word">Post Website</span>
-</h1>
-      <div className='img-container'>
-      <img src={Women_img} className='women_img'/>
-      </div>
-      <div className='posts-btn-container'>
-      <button onClick={handleCreatePost}>Create Post</button>
-     
-      </div>
-     
-    </div> */}
      <div className="posts-display">
       <h1>
         <span className="word">Welcome<span className="superscript">s</span> </span>
