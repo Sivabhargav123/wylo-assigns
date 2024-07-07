@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deletePost } from '../redux/postsSlice';
@@ -20,8 +21,14 @@ const PostItem = ({ post, onEdit }) => {
     <div className="post-item">
       <h2>{post.title}</h2>
       <p>{post.content}</p>
-      <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleDelete} style={{ marginLeft: '10px', backgroundColor: '#dc3545' }}>Delete</button>
+      <div className="button-group">
+        <button className="edit-button" onClick={handleEdit}>
+          <FaEdit /> Edit
+        </button>
+        <button className="delete-button" onClick={handleDelete}>
+          <FaTrash /> Delete
+        </button>
+      </div>
     </div>
   );
 };

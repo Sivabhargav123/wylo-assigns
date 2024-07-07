@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost, editPost } from '../redux/postsSlice';
 import { useNavigate } from 'react-router-dom';
-
+import '../styles/styles.css'
 const PostForm = ({ post }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -23,13 +23,14 @@ const PostForm = ({ post }) => {
     } else {
       dispatch(addPost({ id: Date.now(), title, content }));
     }
-    navigate('/');
+    navigate('/all-posts');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Title</label>
+    <>
+    <form onSubmit={handleSubmit} className='form-div-main'>
+      <div className='form-div'>
+        <label>Title :</label>
         <input
           type="text"
           value={title}
@@ -37,8 +38,8 @@ const PostForm = ({ post }) => {
           required
         />
       </div>
-      <div>
-        <label>Content</label>
+      <div className='form-div'>
+        <label>Content :</label>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -47,6 +48,8 @@ const PostForm = ({ post }) => {
       </div>
       <button type="submit">{post ? 'Save Changes' : 'Create Post'}</button>
     </form>
+    </>
+   
   );
 };
 
